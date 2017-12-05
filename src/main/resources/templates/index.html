@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>json</title>
+<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}" ></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"http://localhost:8080/user",
+			dataType:"json",
+			success:function(json){
+				$("#table").append("<tr><th>姓名</th><th>年龄</th><th>成绩</th></tr>");
+				for(var i in json){
+					console.info(json[i].name);
+					$("#table").append("<tr><td>"+json[i].name+"</td><td>"+json[i].age+"</td><td>"+json[i].score+"</td></tr>");
+				}
+			}
+		});
+	});
+</script>
+
+</head>
+<!-- th:src="@{webjars/jquery/3.2.1/jquery.min.js}" -->
+<body>
+	<table border="1" id="table">
+	</table>
+</body>
+</html>

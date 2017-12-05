@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}" ></script>
+<script type="text/javascript">
+	var json ={
+	        "name": "qiu",
+	        "age": 33,
+	        "score": 69
+	    };
+	$.ajax({
+		url:"get",
+		data:"json=" +JSON.stringify(json),
+		//contentType:"application/json",---->/* @RequestBody使用必须加，不用则不用加 */
+		type:"post",
+		dataType:"json",
+		success:function(data){
+			console.info(ok);
+		}
+	});
+
+</script>
+<body>
+	发送数据。。。。
+</body>
+</html>
